@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
 
-const db = require('../config/db');
 const bcrypt = require('bcryptjs'); // pra criptografar a senha
 
 // Rota de registro
@@ -48,9 +47,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-  
-
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 router.post('/login', async (req, res) => {
