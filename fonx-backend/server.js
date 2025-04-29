@@ -25,20 +25,19 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // Rotas
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'Fala Fonx, tamo online!' });
 });
 
 const userRoutes = require('./routes/userRoutes');
-app.use('/api', userRoutes);
+app.use('/api/users', userRoutes);
 
 const cartRoutes = require('./routes/cartRoutes');
-app.use('/api', cartRoutes);
+app.use('/api/cart', cartRoutes);
 
 const productRoutes = require('./routes/productRoutes');
-app.use('/api', productRoutes);
+app.use('/api/products', productRoutes);
 
 // Start server
 app.listen(port, () => {
