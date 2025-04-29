@@ -84,7 +84,7 @@ router.post('/login', async (req, res) => {
       res.cookie('fonx_token', token, {
           httpOnly: true,
           secure: true,
-domain: '.fonx.com.br', // coloca true quando for em produção HTTPS
+          domain: '.fonx.com.br', // coloca true quando for em produção HTTPS
           maxAge: 3600000, // 1 hora
           path: '/',
       });

@@ -33,7 +33,6 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (response.ok) {
-        Cookies.set('fonx_token', 'true', { expires: 1 });
         setToastMessage('login realizado com sucesso!');
         setToastType('success');
         setShowToast(true);
