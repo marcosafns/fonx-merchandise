@@ -42,7 +42,7 @@ export default function ProfilePage() {
 
   const handleLogout = async () => {
     try {
-      await fetch('https://api.fonx.com.br/api/logout', {
+      await fetch('https://api.fonx.com.br/api/users/logout', {
         method: 'POST',
         credentials: 'include',
       });
