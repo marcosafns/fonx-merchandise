@@ -83,7 +83,8 @@ router.post('/login', async (req, res) => {
 
       res.cookie('fonx_token', token, {
           httpOnly: true,
-          secure: false, // coloca true quando for em produção HTTPS
+          secure: true,
+domain: '.fonx.com.br', // coloca true quando for em produção HTTPS
           maxAge: 3600000, // 1 hora
           path: '/',
       });
@@ -139,7 +140,8 @@ router.post('/login', async (req, res) => {
           
           res.cookie('fonx_token', jwtToken, {
             httpOnly: true,
-            secure: false,
+            secure: true,
+domain: '.fonx.com.br',
             maxAge: 3600000,
             path: '/',
           });
@@ -158,7 +160,8 @@ router.post('/login', async (req, res) => {
   
             res.cookie('fonx_token', jwtToken, {
               httpOnly: true,
-              secure: false,
+              secure: true,
+domain: '.fonx.com.br',
               maxAge: 3600000,
               path: '/',
             });
@@ -176,7 +179,8 @@ router.post('/login', async (req, res) => {
   router.post('/logout', (req, res) => {
     res.clearCookie('fonx_token', {
       httpOnly: true,
-      secure: false, // coloca true quando for HTTPS
+      secure: true,
+domain: '.fonx.com.br', // coloca true quando for HTTPS
       path: '/',
     });
     res.json({ message: 'Logout realizado com sucesso' });
