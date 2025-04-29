@@ -7,19 +7,19 @@ const cookieParser = require('cookie-parser');
 // const serviceAccount = require('./Key/firebasePass.json');
 const port = 5000;
 
+const corsOptions = {
+  origin: 'https://fonx.com.br',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+
 // admin.initializeApp({
 //   credential: admin.credential.cert(serviceAccount),
 // });
 
-app.use(cors({
-  origin: 'https://fonx.com.br',
-  credentials: true,
-  methods: 'GET,POST,PUT,DELETE,OPTIONS',
-  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-}));
-
-app.options('*', cors());
-
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); 
 app.use(express.json());
 
 app.use(cookieParser());
