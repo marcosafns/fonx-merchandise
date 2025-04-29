@@ -21,7 +21,7 @@ export default function ProfilePage() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('https://api.fonx.com.br/api/profile', {
+        const response = await fetch('https://api.fonx.com.br/api/users/profile', {
           credentials: 'include',
         });
 

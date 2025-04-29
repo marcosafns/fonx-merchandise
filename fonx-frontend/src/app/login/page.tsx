@@ -22,7 +22,8 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const response = await fetch('https://api.fonx.com.br/api/login', {
+      const response = await fetch('https://api.fonx.com.br/api/users/login', {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

@@ -53,7 +53,7 @@ export default function ProductPage() {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch('https://api.fonx.com.br/api/profile', {
+      const response = await fetch('https://api.fonx.com.br/api/users/profile', {
         credentials: 'include',
       });
       return response.ok;
