@@ -13,7 +13,9 @@ admin.initializeApp({
 
 app.use(cors({
   origin: 'https://fonx.com.br',
-  credentials: true
+  credentials: true,
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
 }));
 app.use(express.json());
 app.use(cookieParser());
