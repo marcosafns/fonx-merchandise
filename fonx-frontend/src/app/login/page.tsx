@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Cookies from 'js-cookie';
 import '@/styles/styles.css';
 import BackToHome from '../components/BackToHome';
 import Toast from '../components/Toast'; // importa o Toast
