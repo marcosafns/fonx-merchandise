@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/db'); // seu banco
 
-router.get('/products', (req, res) => {
+router.get('/', (req, res) => {
   const sql = 'SELECT * FROM products';
   db.query(sql, (err, results) => {
     if (err) {
@@ -14,7 +14,7 @@ router.get('/products', (req, res) => {
 });
 
 // Buscar produto pelo ID
-router.get('/products/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const { id } = req.params;
   
     const sql = 'SELECT * FROM products WHERE id = ?';

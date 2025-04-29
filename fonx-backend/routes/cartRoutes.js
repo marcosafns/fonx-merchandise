@@ -4,7 +4,7 @@ const db = require('../config/db');
 const verifyToken = require('../middleware/verifyToken');
 
 // Adicionar item ao carrinho
-router.post('/cart/add', verifyToken, (req, res) => {
+router.post('/add', verifyToken, (req, res) => {
   const { product_name, product_img, price, quantity, size } = req.body;
   const userId = req.user.id;
 
@@ -23,7 +23,7 @@ router.post('/cart/add', verifyToken, (req, res) => {
 });
 
 // Ver carrinho do usuário
-router.get('/cart', verifyToken, (req, res) => {
+router.get('/', verifyToken, (req, res) => {
   const userId = req.user.id;
 
   const sql = 'SELECT * FROM cart_items WHERE user_id = ?';
@@ -37,7 +37,7 @@ router.get('/cart', verifyToken, (req, res) => {
 });
 
 // Remover item do carrinho
-router.delete('/cart/remove/:id', verifyToken, (req, res) => {
+router.delete('/remove/:id', verifyToken, (req, res) => {
   const itemId = req.params.id;
   const userId = req.user.id;
 
@@ -52,7 +52,7 @@ router.delete('/cart/remove/:id', verifyToken, (req, res) => {
 });
 
 // Atualizar quantidade de um item no carrinho
-router.put('/cart/update/:id', verifyToken, (req, res) => {
+router.put('/update/:id', verifyToken, (req, res) => {
     const itemId = req.params.id;
     const userId = req.user.id;
     const { quantity } = req.body;
