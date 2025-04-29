@@ -2,14 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const db = require('./config/db');
-const admin = require('firebase-admin');
+// const admin = require('firebase-admin');
 const cookieParser = require('cookie-parser');
-const serviceAccount = require('./Key/firebasePass.json');
+// const serviceAccount = require('./Key/firebasePass.json');
 const port = 5000;
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+// });
 
 app.use(cors({
   origin: 'https://fonx.com.br',
