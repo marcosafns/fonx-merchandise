@@ -21,7 +21,7 @@ export default function ProfilePage() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/profile', {
+        const response = await fetch('https://api.fonx.com.br/api/profile', {
           credentials: 'include',
         });
 
@@ -42,7 +42,7 @@ export default function ProfilePage() {
 
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:5000/api/logout', {
+      await fetch('https://api.fonx.com.br/api/logout', {
         method: 'POST',
         credentials: 'include',
       });

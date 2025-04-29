@@ -27,7 +27,7 @@ export default function Header() {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/profile', {
+      const response = await fetch('https://api.fonx.com.br/api/profile', {
         credentials: 'include',
       });
       setIsLoggedIn(response.ok);

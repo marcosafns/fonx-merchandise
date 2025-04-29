@@ -22,7 +22,7 @@ export default function CartPage() {
     if (newQuantity < 1) return; // Evitar quantidade 0 ou negativa
   
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/update/${itemId}`, {
+      const response = await fetch(`https://api.fonx.com.br/api/cart/update/${itemId}`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
@@ -46,7 +46,7 @@ export default function CartPage() {
 
   const removeItem = async (itemId: number) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/remove/${itemId}`, {
+      const response = await fetch(`https://api.fonx.com.br/api/cart/remove/${itemId}`, {
         method: 'DELETE',
         credentials: 'include',
       });
@@ -66,7 +66,7 @@ export default function CartPage() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/cart', {
+        const response = await fetch('https://api.fonx.com.br/api/cart', {
           credentials: 'include',
         });
 

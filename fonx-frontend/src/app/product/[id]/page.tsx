@@ -32,7 +32,7 @@ export default function ProductPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`);
+        const res = await fetch(`https://api.fonx.com.br/api/products/${id}`);
         if (res.ok) {
           const data = await res.json();
           setProduct(data);
@@ -53,7 +53,7 @@ export default function ProductPage() {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/profile', {
+      const response = await fetch('https://api.fonx.com.br/api/profile', {
         credentials: 'include',
       });
       return response.ok;
@@ -69,7 +69,7 @@ export default function ProductPage() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products/${id}`);
+        const res = await fetch(`https://api.fonx.com.br/api/products/${id}`);
         if (res.ok) {
           const data = await res.json();
           setProduct(data);
@@ -108,7 +108,7 @@ export default function ProductPage() {
     }
   
     try {
-      const response = await fetch('http://localhost:5000/api/cart/add', {
+      const response = await fetch('https://api.fonx.com.br/api/cart/add', {
         method: 'POST',
         credentials: 'include', // MUITO importante
         headers: {
