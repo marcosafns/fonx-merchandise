@@ -7,6 +7,13 @@ import Image from 'next/image';
 
 console.log('🚨 Estou no page.tsx da raiz');
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'fonx&apos. - rico em atitude&apos.',
+};
+
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 4;
