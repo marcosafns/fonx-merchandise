@@ -51,6 +51,10 @@ router.post('/login', async (req, res) => {
 
 // PROFILE
 router.get('/profile', verifyToken, (req, res) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+  
   const sql = 'SELECT id, email, name, phone FROM users WHERE id = ?';
   db.query(sql, [req.user.id], (err, results) => {
     if (err) {
