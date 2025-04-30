@@ -11,7 +11,7 @@ const port = 5000;
 
 app.use(express.json());
 app.use(cors({
-    origin: true,
+    origin: 'https://fonx.com.br',
     credentials: true
 }));
 app.use(cookieParser());
