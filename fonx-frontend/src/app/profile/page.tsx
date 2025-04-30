@@ -28,7 +28,7 @@ export default function ProfilePage() {
 
         if (response.ok) {
           const data = await response.json();
-          setUser(data.user);
+          setUser(data);
         } else {
           router.push('/login');
         }
