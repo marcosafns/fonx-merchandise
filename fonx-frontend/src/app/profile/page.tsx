@@ -28,12 +28,14 @@ export default function ProfilePage() {
 
         if (response.ok) {
           const data = await response.json();
+          console.log('✅ Perfil carregado:', data);
           setUser(data);
         } else {
+          console.warn('🔐 Não autorizado. Redirecionando...');
           router.push('/login');
         }
       } catch (error) {
-        console.error('erro ao buscar perfil:', error);
+        console.error('❌ Erro ao buscar perfil:', error);
         router.push('/login');
       }
     };
@@ -58,7 +60,7 @@ export default function ProfilePage() {
     }
   };
 
-  if (!user) {
+  if (user === null) {
     return <p className="loading-profile">carregando perfil...</p>;
   }
 
