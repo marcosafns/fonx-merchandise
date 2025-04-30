@@ -7,8 +7,9 @@ import Toast from '../components/Toast';
 
 export default function ProfilePage() {
   const [user, setUser] = useState<{ name: string; email: string; phone?: string } | null>(null);
-  const router = useRouter();
+  const [loading, setLoading] = useState(true);
   const [showToast, setShowToast] = useState(false);
+  const router = useRouter();
 
   function formatPhone(value: string) {
     if (!value) return '';
@@ -27,9 +28,13 @@ export default function ProfilePage() {
         });
 
         if (response.ok) {
-          const data = await response.json();
-          console.log('✅ Perfil carregado:', data);
-          setUser(data);
+          try {
+            const data = await response.json();
+            console.log('✅ Perfil carregado:', data);
+            setUser(data);
+          } catch (parseError) {
+            console.error('⚠️ Erro ao fazer parse do JSON:', parseError);
+          }
         } else {
           console.warn('🔐 Não autorizado. Redirecionando...');
           router.push('/login');
@@ -37,6 +42,8 @@ export default function ProfilePage() {
       } catch (error) {
         console.error('❌ Erro ao buscar perfil:', error);
         router.push('/login');
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -60,8 +67,12 @@ export default function ProfilePage() {
     }
   };
 
-  if (user === null) {
+  if (loading) {
     return <p className="loading-profile">carregando perfil...</p>;
+  }
+
+  if (!user) {
+    return <p className="loading-profile">perfil não encontrado ou inválido.</p>;
   }
 
   return (
