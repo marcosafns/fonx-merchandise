@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../config/db');
 const router = express.Router();
+const verifyToken = require('../middleware/verifyToken');
 
 // LOGIN
 router.post('/login', async (req, res) => {
@@ -49,19 +50,20 @@ router.post('/login', async (req, res) => {
 });
 
 // PROFILE
-router.get('/profile', async (req, res) => {
-  const token = req.cookies.fonx_token;
+router.get('/profile', verifyToken, (req, res) => {
+  const sql = 'SELECT id, email, name, phone FROM users WHERE id = ?';
+  db.query(sql, [req.user.id], (err, results) => {
+    if (err) {
+      console.error('Erro ao buscar perfil:', err);
+      return res.status(500).json({ message: 'Erro no servidor.' });
+    }
 
-  if (!token) {
-    return res.status(401).json({ message: 'Token não fornecido.' });
-  }
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Usuário não encontrado.' });
+    }
 
-  try {
-    const decoded = jwt.verify(token, 'seuSegredoUltraSecreto');
-    res.json({ id: decoded.id, email: decoded.email, name: decoded.name });
-  } catch (err) {
-    return res.status(401).json({ message: 'Token inválido.' });
-  }
+    res.json(results[0]);
+  });
 });
 
 // REGISTER
