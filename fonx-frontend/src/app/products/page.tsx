@@ -38,7 +38,7 @@ export default function ProductsPage() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://api.fonx.com.br/api/products')
+        const response = await fetch('/api/products')
         if (response.ok) {
           const data = await response.json()
           setProducts(data)

@@ -37,7 +37,7 @@ export default function RegisterPage() {
     }
 
     try {
-      const response = await fetch('https://api.fonx.com.br/api/users/register', {
+      const response = await fetch('/api/users/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, phone, password }),

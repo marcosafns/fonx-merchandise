@@ -25,7 +25,7 @@ export default function EditProfilePage() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('https://api.fonx.com.br/api/users/profile', {
+        const response = await fetch('/api/users/profile', {
           credentials: 'include',
         });
 
@@ -51,7 +51,7 @@ export default function EditProfilePage() {
     setError('');
 
     try {
-      const response = await fetch('https://api.fonx.com.br/api/users/profile/update', {
+      const response = await fetch('/api/users/profile/update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
