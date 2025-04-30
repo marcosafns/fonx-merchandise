@@ -55,6 +55,7 @@ export default function ProductPage() {
     try {
       const response = await fetch('/api/users/profile', {
         credentials: 'include',
+        cache: 'no-store',
       });
       return response.ok;
     } catch {

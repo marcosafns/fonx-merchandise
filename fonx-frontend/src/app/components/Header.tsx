@@ -29,6 +29,7 @@ export default function Header() {
     try {
       const response = await fetch('/api/users/profile', {
         credentials: 'include',
+        cache: 'no-store',
       });
       setIsLoggedIn(response.ok);
     } catch {

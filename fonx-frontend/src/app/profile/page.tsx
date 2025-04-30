@@ -23,6 +23,7 @@ export default function ProfilePage() {
       try {
         const response = await fetch('/api/users/profile', {
           credentials: 'include',
+          cache: 'no-store',
         });
 
         if (response.ok) {

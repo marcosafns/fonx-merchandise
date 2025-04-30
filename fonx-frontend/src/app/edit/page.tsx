@@ -27,6 +27,7 @@ export default function EditProfilePage() {
       try {
         const response = await fetch('/api/users/profile', {
           credentials: 'include',
+          cache: 'no-store',
         });
 
         if (response.ok) {
