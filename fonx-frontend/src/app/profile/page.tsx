@@ -21,6 +21,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const fetchProfile = async () => {
+      console.log('🔄 Buscando perfil...');
       try {
         const response = await fetch('/api/users/profile', {
           credentials: 'include',
