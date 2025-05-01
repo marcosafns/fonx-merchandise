@@ -73,7 +73,7 @@ export default function Home() {
         <h2>produtos destaque</h2>
         <div className="products-grid">
           <ProductCard
-            id={5}
+            id={1}
             frontImg="/imgs/merch/tshirt-logoBlack.png"
             backImg="/imgs/merch/model-tshirt-logoBlack.png"
             title="t-shirt fonx&apos;. originals black"
@@ -81,7 +81,7 @@ export default function Home() {
             installments="ou 3x de R$ 39.96 sem juros"
           />
           <ProductCard
-            id={6}
+            id={2}
             frontImg="/imgs/merch/tshirt-logoWhite.png"
             backImg="/imgs/merch/model-tshirt-logoWhite.png"
             title="t-shirt fonx'. originals white"
@@ -89,7 +89,7 @@ export default function Home() {
             installments="ou 3x de R$ 39.96 sem juros"
           />
           <ProductCard
-            id={7}
+            id={3}
             frontImg="/imgs/merch/tshirt-deceptionBrown.png"
             backImg="/imgs/merch/model-tshirt-deceptionBrown.png"
             title="t-shirt fonx'. déception brown"
