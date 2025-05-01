@@ -1,14 +1,11 @@
+'use client';
+
 import '../styles/styles.css';
 import { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: "fonx&apos. - rico em atitude",
-  description: "Moda streetwear com personalidade. A Fonx é estilo em cada peça.",
-};
 export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
